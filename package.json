@@ -1,7 +1,20 @@
 {
+  "name": "renner-challenge-backend",
+  "version": "1.0.0",
+  "description": "A node.js backend build for Renner developer test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Leandro Corso",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "firebase": "^9.9.4",
+    "firebase": "^8.0.0"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.19"
   }
 }
