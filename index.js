@@ -16,20 +16,12 @@ app.get("/", (req, res) => {
 const products = express.Router()
 app.use('/products', products)
 
-const formatCurrency = ( number ) => {
-    return parseFloat(number).toFixed(2).replace('.',',')
-}
-
 const productsRef = db.collection('products')
 
 products.get("/", async (req, res) => {
     try {
         const snapshot = await productsRef.get()
-        const productsList = snapshot.docs.map(doc => {
-            let docData = doc.data();
-            docData.price = formatCurrency(docData.price);
-            return { id:doc.id, ...docData }
-        } )
+        const productsList = snapshot.docs.map(doc => ({ id:doc.id, ...doc.data() }))
         
         if (productsList) {
             res.send(productsList)
@@ -49,9 +41,7 @@ products.get("/:id", async (req, res) => {
         if (!id) return res.sendStatus(404)
 
         const snapshot = await productsRef.doc(id).get()
-        let snapshotData = snapshot.data();
-        snapshotData.price = formatCurrency(snapshotData.price)
-        const product = { id, ...snapshotData }
+        const product = { id, ...snapshot.data() }
         
         if (product) {
             res.status(200).send(product)
