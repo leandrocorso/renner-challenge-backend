@@ -25,7 +25,7 @@ Renner Challenge backend is running on port: 5000
 ```
 If everything is correct you can execute this API on your browser using "[http://localhost:5000](http://localhost:5000)" and the same message must be showed.
 
-Now you can enter into "**Renner Challenge frontend repository**" and follow the steps on description. Honestly is almost the same thing from here!
+Now you can enter into "**Renner Challenge frontend repository**" [here](https://github.com/leandrocorso/renner-challenge-frontend) and follow the steps on description. Honestly is almost the same thing from here!
 
 
 ## Some possible questions
